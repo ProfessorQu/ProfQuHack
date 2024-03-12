@@ -1,9 +1,10 @@
 {
 	"required": true,
-	"package": "net.professorqu.mixin.client",
+	"package": "net.professorqu.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"ExampleClientMixin"
+      "GameMenuScreenMixin",
+	  "ClientConnectionAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
