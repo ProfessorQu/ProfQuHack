@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"net.professorqu.ProfQuHack"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"net.professorqu.ProfQuHackClient"
 		]
 	},
 	"mixins": [
