@@ -1,6 +1,7 @@
 package net.professorqu.modules;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.professorqu.mixin.PlayerMoveC2SPacketAccessor;
@@ -19,6 +20,9 @@ public class Flight extends Hack {
         if (player == null) return;
 
         player.getAbilities().allowFlying = this.enabled;
+        if (!this.enabled) {
+            player.getAbilities().flying = false;
+        }
 
         this.previousY = player.getY();
         this.floatingTicks = 0;

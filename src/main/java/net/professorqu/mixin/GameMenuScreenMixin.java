@@ -21,7 +21,7 @@ public abstract class GameMenuScreenMixin extends Screen {
 	 * Create and add the button to go to the screen to enable/disable hacks
 	 * @param ci the callback info from the injection
 	 */
-	@Inject(method="initWidgets", at=@At("HEAD"))
+	@Inject(method = "initWidgets", at = @At("HEAD"))
 	void initWidgets(CallbackInfo ci) {
 		var buttonWidget = ButtonWidget.builder(
 				Text.translatable("hacks.title"),

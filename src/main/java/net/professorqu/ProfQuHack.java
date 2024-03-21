@@ -2,9 +2,7 @@ package net.professorqu;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.professorqu.modules.Flight;
-import net.professorqu.modules.Hack;
-import net.professorqu.modules.NoFall;
+import net.professorqu.modules.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,19 +17,25 @@ public class ProfQuHack implements ModInitializer {
 	public void onInitialize() {
 		HACKS.add(new Flight());
 		HACKS.add(new NoFall());
+		HACKS.add(new BoatFly());
+		HACKS.add(new Speed());
+		HACKS.add(new Step());
+		HACKS.add(new Jesus());
+		HACKS.add(new SuperJump());
+		HACKS.add(new FullBright());
 
 		ClientTickEvents.START_CLIENT_TICK.register(client ->
-				HACKS.forEach(hack -> {
-					if (hack.isEnabled())
-						hack.tick();
-				})
+			HACKS.forEach(hack -> {
+				if (hack.isEnabled())
+					hack.tick();
+			})
 		);
 
 		ClientTickEvents.END_CLIENT_TICK.register(client ->
-				HACKS.forEach(hack -> {
-					if (hack.isEnabled())
-						hack.postTick();
-				})
+			HACKS.forEach(hack -> {
+				if (hack.isEnabled())
+					hack.postTick();
+			})
 		);
 	}
 
@@ -41,7 +45,7 @@ public class ProfQuHack implements ModInitializer {
 	 * @return	the matching hack from {@code HACKS}
 	 * @param 	<T> extends Hack
 	 */
-	private static <T extends Hack> T getHack(Class<T> clazz) {
+	public static <T extends Hack> T getHack(Class<T> clazz) {
 		for (var hack : HACKS) {
 			if (hack.getClass() == clazz) {
 				return clazz.cast(hack);
