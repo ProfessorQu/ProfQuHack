@@ -1,7 +1,6 @@
 package net.professorqu.modules;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.professorqu.mixin.PlayerMoveC2SPacketAccessor;
@@ -29,8 +28,8 @@ public class Flight extends Hack {
     }
 
     @Override
-    public void modifyPacket(Packet<?> packet) {
-        if (!(packet instanceof PlayerMoveC2SPacket)) return;
+    public boolean modifyPacket(Packet<?> packet) {
+        if (!(packet instanceof PlayerMoveC2SPacket)) return false;
 
         // Go down a tiny bit to not get kicked for flying
         if (floatingTicks >= MAX_FLOATING_TICKS) {
@@ -38,6 +37,8 @@ public class Flight extends Hack {
 
             floatingTicks = 0;
         }
+
+        return false;
     }
 
     @Override

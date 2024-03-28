@@ -1,5 +1,6 @@
 {
-  "hacks.title": "Hacks",
+  "hacks.title": "ProfQuHack",
+
   "hacks.flight": "Flight",
   "hacks.nofall": "NoFall",
   "hacks.jesus": "Jesus",
@@ -8,7 +9,23 @@
   "hacks.step": "Step",
   "hacks.superjump": "SuperJump",
   "hacks.fullbright": "FullBright",
-  "hacks.is": "is",
-  "hacks.enabled": "enabled",
-  "hacks.disabled": "disabled"
+  "hacks.noweather": "NoWeather",
+  "hacks.xray": "X-Ray",
+  "hacks.antihunger": "AntiHunger",
+  "hacks.killaura": "KillAura",
+
+  "category.hacks": "Hacks",
+
+  "key.hacks.flight": "Toggle Flight",
+  "key.hacks.nofall": "Toggle NoFall",
+  "key.hacks.jesus": "Toggle Jesus",
+  "key.hacks.boatfly": "Toggle BoatFly",
+  "key.hacks.speed": "Toggle Speed",
+  "key.hacks.step": "Toggle Step",
+  "key.hacks.superjump": "Toggle SuperJump",
+  "key.hacks.fullbright": "Toggle FullBright",
+  "key.hacks.noweather": "Toggle NoWeather",
+  "key.hacks.xray": "Toggle X-Ray",
+  "key.hacks.antihunger": "Toggle AntiHunger",
+  "key.hacks.killaura": "Toggle KillAura"
 }

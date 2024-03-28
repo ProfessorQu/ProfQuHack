@@ -24,12 +24,12 @@ public abstract class GameMenuScreenMixin extends Screen {
 	@Inject(method = "initWidgets", at = @At("HEAD"))
 	void initWidgets(CallbackInfo ci) {
 		var buttonWidget = ButtonWidget.builder(
-				Text.translatable("hacks.title"),
-				button -> {
-					if (MinecraftClient.getInstance() != null) {
-						MinecraftClient.getInstance().setScreen(new HackScreen(this));
-					}
+			Text.translatable("hacks.title"),
+			button -> {
+				if (MinecraftClient.getInstance() != null) {
+					MinecraftClient.getInstance().setScreen(new HackScreen());
 				}
+			}
 		).position(10, 10).build();
 
 		this.addDrawableChild(buttonWidget);

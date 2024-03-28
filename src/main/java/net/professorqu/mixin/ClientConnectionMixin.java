@@ -19,11 +19,13 @@ public abstract class ClientConnectionMixin {
      * @param flush     should the function flush all the packets
      * @param ci        the callback info from the injection
      */
-    @Inject(method = "send(Lnet/minecraft/network/packet/Packet;Lnet/minecraft/network/PacketCallbacks;Z)V", at = @At("HEAD"))
+    @Inject(method = "send(Lnet/minecraft/network/packet/Packet;Lnet/minecraft/network/PacketCallbacks;Z)V", at = @At("HEAD"), cancellable = true)
     private void send(Packet<?> packet, @Nullable PacketCallbacks callbacks, boolean flush, CallbackInfo ci) {
         ProfQuHack.getHacks().forEach(hack -> {
             if (hack.isEnabled())
-                hack.modifyPacket(packet);
+                if(hack.modifyPacket(packet)) {
+                    ci.cancel();
+                }
         });
     }
 }

@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractBlockStateMixin",
+    "BiomeMixin",
     "ClientConnectionMixin",
     "EntityMixin",
     "GameMenuScreenMixin",
@@ -11,7 +12,8 @@
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "PlayerMoveC2SPacketAccessor",
-    "VehicleMoveC2SPacketAccessor"
+    "VehicleMoveC2SPacketAccessor",
+    "WorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1

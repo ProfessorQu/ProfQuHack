@@ -1,8 +1,6 @@
 package net.professorqu.modules;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.VehicleMoveC2SPacket;
 import net.minecraft.util.math.Vec3d;
@@ -48,8 +46,8 @@ public class BoatFly extends Hack {
     }
 
     @Override
-    public void modifyPacket(Packet<?> packet) {
-        if (!(packet instanceof VehicleMoveC2SPacket)) return;
+    public boolean modifyPacket(Packet<?> packet) {
+        if (!(packet instanceof VehicleMoveC2SPacket)) return false;
 
         // Go down a tiny bit to not get kicked for flying
         if (floatingTicks >= MAX_FLOATING_TICKS) {
@@ -57,5 +55,7 @@ public class BoatFly extends Hack {
 
             floatingTicks = 0;
         }
+
+        return false;
     }
 }
